@@ -1284,17 +1284,19 @@
   ✓ Your message has been sent! Sabina will be in touch soon.
 </div>
 
+<form name="contact" netlify data-netlify="true" onsubmit="handleSubmit(event)">
+  <input type="hidden" name="form-name" value="contact" />
 <div class="form-group">
   <label class="form-label">Your Name</label>
-  <input type="text" class="form-input" id="name" placeholder="Jane Smith" />
+  <input type="text" class="form-input" id="name" name="name" placeholder="Jane Smith" />
 </div>
 <div class="form-group">
   <label class="form-label">Email Address</label>
-  <input type="email" class="form-input" id="email" placeholder="jane@example.com" />
+  <input type="email" class="form-input" id="email" name="email" placeholder="jane@example.com" />
 </div>
 <div class="form-group">
   <label class="form-label">I'm interested in…</label>
-  <select class="form-select" id="interest">
+  <select class="form-select" id="interest" name="interest">
     <option value="">— Select one —</option>
     <option>Purchasing a gallery piece</option>
     <option>Commissioning a custom painting</option>
@@ -1303,9 +1305,10 @@
 </div>
 <div class="form-group">
   <label class="form-label">Your Message</label>
-  <textarea class="form-textarea" id="message" placeholder="Tell me what you have in mind…"></textarea>
+  <textarea class="form-textarea" id="message" name="message" placeholder="Tell me what you have in mind…"></textarea>
 </div>
-<button class="form-submit" onclick="handleSubmit()">Send Message</button>
+<button type="submit" class="form-submit">Send Message</button>
+</form>
 
 <p style="margin-top:1rem; font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.1em; color:#bbb; text-transform:uppercase; text-align:center;">
   ✦ All inquiries typically answered within 2–3 days (unless she's traveling)
@@ -1349,8 +1352,8 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
 
-  // Contact form (simple — just shows confirmation since no backend yet)
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
@@ -1360,13 +1363,15 @@
       return;
     }
 
-    // In a real deployment, you'd POST to a form service like Netlify Forms,
-    // Formspree, or EmailJS. For now, show success message.
-    document.getElementById('form-success').style.display = 'block';
-    document.getElementById('name').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('message').value = '';
-    document.getElementById('interest').value = '';
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch('/', { method: 'POST', body: data })
+      .then(() => {
+        document.getElementById('form-success').style.display = 'block';
+        form.reset();
+      })
+      .catch(() => alert('Something went wrong. Please try again.'));
   }
 </script>
 
