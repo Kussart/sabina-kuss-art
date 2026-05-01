@@ -167,6 +167,12 @@
       "image": "images/img_5633.jpeg",
       "price": "Oil on Canvas · SOLD",
       "sold": true
+    },
+    {
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false,
+      "title": "Poppies",
+      "image": "images/img_8950.jpeg"
     }
   ]
 }
