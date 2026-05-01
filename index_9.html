@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabina Kuss — Original Art | Durango, Colorado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ───────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --clay:      #3A6EA8;
+      --sand:      #C8D9ED;
+      --sage:      #5B8DB8;
+      --charcoal:  #1A2B3C;
+      --cream:     #EEF4FB;
+      --rust:      #1E4D7B;
+      --gold:      #7BAFD4;
+      --warm-white:#F4F8FD;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ─────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ── NAV ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(250, 246, 239, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(196, 114, 74, 0.2);
+      transition: box-shadow 0.3s;
+    }
+
+    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo svg {
+      height: 80px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--clay);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--clay); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ── HERO ──────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-side {
+      background: linear-gradient(135deg, #1A3A5C 0%, #3A6EA8 40%, #1E4D7B 70%, #0F2540 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Decorative burro silhouette SVG */
+    .burro-hero-art {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.18;
+    }
+
+    .burro-hero-art svg {
+      width: 70%;
+      height: 70%;
+      fill: var(--sand);
+    }
+
+    .hero-portrait-frame {
+      position: relative;
+      z-index: 2;
+      width: 420px;
+      height: 520px;
+      border: 3px solid rgba(232, 213, 183, 0.5);
+      box-shadow: 20px 20px 60px rgba(0,0,0,0.3), -5px -5px 30px rgba(255,255,255,0.1);
+      overflow: hidden;
+      transform: rotate(0deg);
+    }
+
+    .hero-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #3A6EA8 0%, #1A3A5C 50%, #0F2540 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--sand);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .portrait-placeholder svg {
+      width: 80px;
+      height: 80px;
+      fill: rgba(232, 213, 183, 0.6);
+      margin-bottom: 1rem;
+    }
+
+    .portrait-placeholder p {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(232, 213, 183, 0.7);
+      line-height: 1.6;
+    }
+
+    .frame-label {
+      position: absolute;
+      bottom: -1.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--sand);
+      opacity: 0.8;
+      white-space: nowrap;
+    }
+
+    .hero-text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 5rem 5rem 5rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.3s;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.5s;
+    }
+
+    .hero-name em {
+      color: var(--clay);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--rust);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.7s;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #555;
+      max-width: 420px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.9s;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 1.1s;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      background: var(--clay);
+      color: white;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 4px 4px 0 var(--rust);
+    }
+
+    .btn-primary:hover {
+      background: var(--rust);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--rust);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      border: 1.5px solid var(--charcoal);
+      color: var(--charcoal);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--charcoal);
+      color: white;
+      transform: translate(-2px, -2px);
+    }
+
+    .hero-location {
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #999;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 1.3s;
+    }
+
+    .hero-location svg {
+      width: 14px; height: 14px;
+      fill: var(--sage);
+    }
+
+    /* ── MARQUEE BANNER ────────────────────────────── */
+    .marquee-wrap {
+      background: var(--charcoal);
+      overflow: hidden;
+      padding: 0.85rem 0;
+      border-top: 2px solid var(--clay);
+      border-bottom: 2px solid var(--clay);
+    }
+
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee-item {
+      flex-shrink: 0;
+      padding: 0 3rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--sand);
+    }
+
+    .marquee-dot {
+      color: var(--clay);
+      padding: 0 0.5rem;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── FEATURED COMMISSION ───────────────────────── */
+    #commission {
+      background: var(--sand);
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #commission::before {
+      content: 'NEW';
+      position: absolute;
+      top: 3rem;
+      right: -2rem;
+      background: var(--clay);
+      color: white;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      padding: 0.4rem 3rem;
+      transform: rotate(45deg) translateX(15px);
+      transform-origin: center;
+    }
+
+    .commission-artwork {
+      position: relative;
+    }
+
+    .commission-canvas {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, #1A3A5C, #3A6EA8, #1E4D7B, #2A5A8C);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 30px 30px 80px rgba(0,0,0,0.2);
+    }
+
+    /* Painted burro face illustration using CSS/SVG */
+    .commission-canvas svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .commission-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--charcoal);
+      color: var(--sand);
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      border: 3px solid var(--clay);
+    }
+
+    .commission-badge span {
+      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--clay);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .commission-text {
+      padding: 1rem 0;
+    }
+
+    .section-label {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading em { color: var(--clay); font-style: italic; }
+
+    .section-body {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .commission-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .detail-item {
+      padding: 1rem 1.2rem;
+      background: white;
+      border-left: 3px solid var(--clay);
+    }
+
+    .detail-label {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.3rem;
+    }
+
+    .detail-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--charcoal);
+    }
+
+    /* ── GALLERY ───────────────────────────────────── */
+    #gallery {
+      padding: 6rem 3rem;
+      background: var(--warm-white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 2/1; }
+    .gallery-item:nth-child(4) { grid-column: span 2; aspect-ratio: 2/1; }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-placeholder { transform: scale(1.05); }
+
+    /* Distinct color per painting placeholder */
+    .gp-1 { background: linear-gradient(135deg, #1A3A5C, #3A6EA8); }
+    .gp-2 { background: linear-gradient(135deg, #1E4D7B, #5B8DB8); }
+    .gp-3 { background: linear-gradient(135deg, #2A3A6B, #5B6EB8); }
+    .gp-4 { background: linear-gradient(135deg, #0F2540, #2A5A8C); }
+    .gp-5 { background: linear-gradient(135deg, #1A3A5C, #4A7FA8); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(43,43,43,0);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      transition: background 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      background: rgba(43,43,43,0.6);
+    }
+
+    .gallery-info {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .gallery-item:hover .gallery-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      display: block;
+    }
+
+    .gallery-price {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .gallery-placeholder-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-placeholder p {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+    }
+
+    /* ── BIO ────────────────────────────────────────── */
+    #bio {
+      background: var(--charcoal);
+      color: var(--sand);
+      padding: 7rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .bio-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .bio-portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, #3A6EA8, #1A3A5C, #0F2540);
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 15px 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .bio-portrait-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--sand);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .bio-portrait svg {
+      width: 70px;
+      height: 70px;
+      fill: rgba(232, 213, 183, 0.5);
+      margin-bottom: 1rem;
+    }
+
+    .bio-portrait p {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(232, 213, 183, 0.55);
+      line-height: 1.7;
+    }
+
+    .bio-name-card {
+      border-top: 1px solid rgba(232, 213, 183, 0.2);
+      padding-top: 1.2rem;
+    }
+
+    .bio-name-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--clay);
+    }
+
+    .bio-name-card p {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(232, 213, 183, 0.5);
+      margin-top: 0.3rem;
+    }
+
+    .bio-content .section-label { color: var(--clay); margin-bottom: 1rem; }
+
+    .bio-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--sand);
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    .bio-content h2 em { color: var(--clay); font-style: italic; }
+
+    .bio-body {
+      font-size: 1.15rem;
+      line-height: 2;
+      color: rgba(232, 213, 183, 0.75);
+    }
+
+    .bio-body p { margin-bottom: 1.5rem; }
+
+    .bio-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(232, 213, 183, 0.15);
+      margin-top: 3rem;
+    }
+
+    .bio-fact {
+      background: rgba(0,0,0,0.2);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .bio-fact-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--clay);
+      display: block;
+      line-height: 1;
+    }
+
+    .bio-fact-label {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(232, 213, 183, 0.45);
+      margin-top: 0.5rem;
+    }
+
+    /* ── CONTACT / COMMISSIONS ─────────────────────── */
+    #contact {
+      background: var(--sand);
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .contact-text { padding: 1rem 0; }
+
+    .contact-form-area {
+      background: white;
+      padding: 3rem;
+      box-shadow: 20px 20px 60px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid #E0D8CD;
+      background: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--clay);
+    }
+
+    .form-textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--clay);
+      color: white;
+      border: none;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .form-submit:hover {
+      background: var(--rust);
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ────────────────────────────────────── */
+    footer {
+      background: #1A1A1A;
+      color: rgba(232, 213, 183, 0.5);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: var(--clay);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(232, 213, 183, 0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--clay); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(232, 213, 183, 0.25);
+    }
+
+    /* ── ANIMATIONS ────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-image-side { min-height: 55vw; }
+      .hero-text-side { padding: 4rem 2rem; }
+      #commission, #contact { grid-template-columns: 1fr; gap: 3rem; }
+      #bio { grid-template-columns: 1fr; gap: 3rem; }
+      .bio-sidebar { position: static; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:nth-child(1), .gallery-item:nth-child(4) { grid-column: span 1; aspect-ratio: 1; }
+      .commission-badge { right: 0.5rem; bottom: 0.5rem; }
+    }
+  </style>
+
+</head>
+<body>
+
+<!-- ── NAVIGATION ─────────────────────────────────── -->
+
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" height="52" width="auto">
+      <path
+        d="M 0,62
+           C 20,60 40,55 60,48
+           C 75,42 88,32 100,22
+           Q 108,14 116,22
+           C 126,33 138,48 154,56
+           C 164,61 174,64 186,65
+           C 196,65 206,62 216,58
+           C 224,55 230,50 236,46
+           Q 242,42 248,46
+           C 254,50 260,56 268,60
+           C 276,64 286,66 298,65
+           C 310,64 322,58 336,46
+           Q 344,38 352,46
+           C 360,55 372,64 390,68
+           C 402,70 412,68 420,66"
+        fill="none"
+        stroke="#1A2B3C"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <text
+        x="210" y="85"
+        text-anchor="middle"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="13" font-weight="400" letter-spacing="8"
+        fill="#1A2B3C"
+      >SABINA  KUSS  ART</text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#commission">Commission</a></li>
+    <li><a href="#bio">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────── -->
+
+<section id="hero">
+  <div class="hero-image-side">
+<!-- Hero painting -->
+<div style="position:relative; z-index:2;">
+  <div class="hero-portrait-frame">
+    <img src="images/image_001.jpg" alt="Ice Face Plunge" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;"/>
+  </div>
+  <div class="frame-label">Ice Face Plunge &nbsp;·&nbsp; Oil 12" × 14"</div>
+</div>
+
+  </div>
+
+  <div class="hero-text-side">
+    <p class="hero-eyebrow">✦ Original Fine Art ✦ Durango, Colorado</p>
+    <h1 class="hero-name">Sabina<br/><em>Kuss</em></h1>
+    <p class="hero-subtitle">Refuge of Contemplation</p>
+    <p class="hero-tagline">
+      Painting is my escape and my return. I am able to return to the moments that move me the most. I capture the beauty of a landscape or the character of a living creature and make it permanent on my canvas. Through my travels and time in nature, I invite the viewer to share in my sense of wonder. My desire is to turn these experiences into an opportunity of reflection and joy to the viewer.
+    </p>
+    <div class="hero-ctas">
+      <a href="#gallery" class="btn-primary">View Gallery</a>
+      <a href="#contact" class="btn-outline">Commission a Piece</a>
+    </div>
+    <div class="hero-location">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Durango, Colorado · Four Corners Region
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ─────────────────────────────────────── -->
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <!-- Repeated twice for seamless loop -->
+    <span class="marquee-item">Original Oil Paintings <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Southwest Landscapes <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Burro Portraits <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Commissions Welcome <span class="marquee-dot">✦</span></span>
+
+  </div>
+</div>
+
+<!-- ── FEATURED COMMISSION ─────────────────────────── -->
+
+<section id="commission">
+  <div class="commission-artwork reveal">
+    <div class="commission-canvas">
+<img src="images/burro-commission.jpg" alt="Burro Portrait Commission" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;"/>
+
+  <div class="commission-badge">
+    <span>★</span>
+    Current<br/>
+    Commission
+  </div>
+</div>
+
+  </div>
+
+  <div class="commission-text reveal">
+    <p class="section-label">✦ Featured Work</p>
+    <h2 class="section-heading">Large-Scale<br/><em>Burro Portrait</em></h2>
+    <p class="section-body">
+      Sabina has just received an exciting commission for a large, close-up oil painting of a burro face — capturing the soulful gaze and quiet dignity of this iconic Southwest animal. Each brushstroke brings to life the texture, warmth, and personality that make burros such beloved subjects.
+    </p>
+
+<div class="commission-details">
+  <div class="detail-item">
+    <div class="detail-label">Medium</div>
+    <div class="detail-value">Oil on Canvas</div>
+  </div>
+  <div class="detail-item">
+    <div class="detail-label">Scale</div>
+    <div class="detail-value">Large Format</div>
+  </div>
+  <div class="detail-item">
+    <div class="detail-label">Subject</div>
+    <div class="detail-value">Burro Portrait</div>
+  </div>
+  <div class="detail-item">
+    <div class="detail-label">Status</div>
+    <div class="detail-value">In Progress</div>
+  </div>
+</div>
+
+<a href="#contact" class="btn-primary">Request a Commission</a>
+
+  </div>
+</section>
+
+<!-- ── GALLERY ─────────────────────────────────────── -->
+
+<section id="gallery">
+  <div class="section-header reveal">
+    <p class="section-label">✦ Original Works</p>
+    <h2 class="section-heading" style="font-family:'Playfair Display',serif; font-size:clamp(2rem,3vw,3rem); font-weight:700;">The <em style="color:var(--clay)">Gallery</em></h2>
+    <p style="color:#888; font-size:1rem; margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.8;">
+      All works are original oil paintings, available for purchase. New pieces added regularly — reach out to inquire about availability and pricing.
+    </p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <img src="images/image_002.png" alt="Mountain Biker on Rocks" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Holding the Line</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_003.png" alt="Red Poppy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Airy Poppy</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_004.png" alt="Sunset Bike Ride" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">No Map, Just a Horizon</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_005.jpg" alt="Burro Portrait" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Francis</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_006.jpg" alt="Donkeys and Geese" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Refugio</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_007.jpg" alt="Canoe at Sunset" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Painted Sky</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_008.png" alt="Canyon Tree" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Canyon Overlook</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_009.jpg" alt="Mesa Landscape" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Mesa Landscape</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_010.jpg" alt="Winter Mountain" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Eyelashes of the Sun</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_011.jpg" alt="Snowshoe Hare" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Snowshoe Hare</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_013.jpg" alt="Robin in Winter" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Robin in Winter</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_014.jpg" alt="Bicycle Detail" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Single Speed Shift</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_015.jpg" alt="Winter Stream" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Evening Willows</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_016.jpg" alt="Alpine Sunrise" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Morning Sunburst</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_017.jpg" alt="Snowy Peak" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Engineer</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_018.jpg" alt="Golden Mountain" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Sunlight to Shadows</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+
+  </div>
+
+
+
+
+    <div class="gallery-item">
+      <img src="images/image_023.jpg" alt="Saguaro Sunset" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">McDowell Alpenglow</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_024.png" alt="Tour de France" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">The Peloton, Stage 15 Tour de France</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_025.jpg" alt="Fox at Dusk" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Red Fox</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_026.jpg" alt="Two Burros" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Sure-footed Delivery</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_027.jpg" alt="Sheep in the Valley" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">All Accounted For</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_028.jpg" alt="Sandhill Cranes" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Sandhill Cranes</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_029.jpg" alt="Fawn Reflection" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Graceful Fawn</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+    <div class="gallery-item" style="position:relative;">
+      <img src="images/IMG_4748.jpeg" alt="French Cottage with Bicycle" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);background:rgba(180,0,0,0.8);color:white;font-family:'Josefin Sans',sans-serif;font-size:2rem;font-weight:700;letter-spacing:0.2em;padding:0.5rem 2rem;pointer-events:none;">SOLD</div>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">French Cottage</span><span class="gallery-price">Oil on Canvas · SOLD</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/IMG_0270.png" alt="Grand Canyon Sunset" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Canyon Sunset</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_030.jpg" alt="Canyon Glow" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Canyon Glow</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:3rem;" class="reveal">
+    <a href="#contact" class="btn-primary">Inquire About Any Piece</a>
+  </div>
+</section>
+
+<!-- ── BIO ────────────────────────────────────────── -->
+
+<section id="bio">
+  <div class="bio-sidebar reveal">
+    <div class="bio-portrait">
+      <div class="bio-portrait-inner" style="padding:0;overflow:hidden;background:none;border:none;">
+        <img src="images/image_031.jpg" alt="Sabina Kuss with a burro" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit;display:block;"/>
+      </div>
+    </div>
+    <div class="bio-name-card">
+      <h3>Sabina Kuss</h3>
+      <p>Fine Artist · Durango, CO</p>
+    </div>
+  </div>
+
+  <div class="bio-content reveal">
+    <p class="section-label">✦ The Artist</p>
+    <h2>About <em>Sabina</em></h2>
+    <div class="bio-body">
+      <p>
+        Sabina is a nature-inspired representational oil painter in Durango, Colorado focusing on the landscape and its animal life. Her color palette is inspired by her travels and everyday encounters.
+      </p>
+      <p>
+        Her career as an elementary school teacher fostered a love of lifelong learning and an openness to multiple perspectives. These qualities spurred an artistic pursuit and a curiosity to become a self-directed oil painter. Her dedicated process of self-teaching is to utilize workshops, mentoring and online classes.
+      </p>
+      <p>
+        As a traveler and keen observer of nature, she uses her practice to revive the sights, sounds and spirits encountered on her adventures. Sabina aspires to offer a refuge of contemplation through her paintings generated from her gusto for both art and the natural world.
+      </p>
+      <p>
+        Her work expands from oil painting to include over 170 different greeting cards and a self-published book sold at seven locations in Durango.
+      </p>
+
+<!-- ── BOOK & CARDS ─────────────────────────────────── -->
+<div style="margin-top:3rem; padding:2.5rem; background:var(--cream,#f5f0e8); border-radius:12px;" class="reveal">
+  <p class="section-label" style="text-align:center;">✦ Beyond the Canvas</p>
+  <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; text-align:center; margin-bottom:2rem; color:var(--ink,#1A2B3C);">Book &amp; Greeting Cards</h3>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:start;">
+
+    <div style="text-align:center;">
+      <img src="images/image_032.png" alt="A Donkey and a Boy book cover"
+        style="width:100%; max-width:320px; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15);"/>
+      <p style="margin-top:1rem; font-family:'Playfair Display',serif; font-style:italic; font-size:1.1rem; color:var(--ink,#1A2B3C);">A Donkey and a Boy</p>
+      <p style="font-size:0.85rem; color:#666; margin-top:0.25rem;">Written &amp; Illustrated by Sabina Kuss<br/>Available at 7 locations in Durango</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+      <img src="images/image_033.jpg" alt="Greeting cards collection"
+        style="width:100%; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15);"/>
+      <img src="images/image_034.jpg" alt="Greeting cards collection"
+        style="width:100%; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15);"/>
+      <p style="font-size:0.85rem; color:#666; text-align:center;">Over 170 original greeting card designs</p>
+    </div>
+
+  </div>
+</div>
+
+    </div>
+
+<div class="bio-facts">
+  <div class="bio-fact">
+    <span class="bio-fact-number">oils</span>
+    <p class="bio-fact-label">Primary Medium</p>
+  </div>
+  <div class="bio-fact">
+    <span class="bio-fact-number">SW</span>
+    <p class="bio-fact-label">Colorado · Four Corners</p>
+  </div>
+  <div class="bio-fact">
+    <span class="bio-fact-number">✦</span>
+    <p class="bio-fact-label">Commissions Open</p>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+
+<!-- ── CONTACT ─────────────────────────────────────── -->
+
+<section id="contact">
+  <div class="contact-text reveal">
+    <h2 style="font-family:'Playfair Display',serif; font-size:clamp(2.5rem,4vw,4rem); font-weight:700; color:var(--charcoal); margin-bottom:1.5rem;">Get in <em style="color:var(--clay); font-style:italic;">Touch</em></h2>
+    <p class="section-body">
+      Interested in owning an original Sabina Kuss painting? Whether you'd like to purchase a piece from the gallery, commission a custom work, or simply learn more — Sabina would love to hear from you.
+    </p>
+    <p class="section-body" style="font-size:1rem; color:#777;">
+      Commission inquiries are especially welcome. Sabina accepts a limited number of commissions each year, allowing her to give each piece the time and devotion it deserves.
+    </p>
+
+<div style="margin-top:2rem; padding:1.5rem; border-left:3px solid var(--sage); background:rgba(122,158,126,0.08);">
+  <p style="font-family:'Josefin Sans',sans-serif; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--sage); margin-bottom:0.5rem;">Based in</p>
+  <p style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--charcoal);">Durango, Colorado<br/><span style="font-size:0.95rem; color:#888; font-style:italic;">Four Corners Region, USA</span></p>
+</div>
+
+  </div>
+
+  <div class="contact-form-area reveal">
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:1.5rem; color:var(--charcoal);">Send a Message</h3>
+
+<div id="form-success" style="display:none; background:#7A9E7E; color:white; padding:1rem 1.5rem; margin-bottom:1.5rem; font-family:'Josefin Sans',sans-serif; font-size:0.8rem; letter-spacing:0.1em;">
+  ✓ Your message has been sent! Sabina will be in touch soon.
+</div>
+
+<div class="form-group">
+  <label class="form-label">Your Name</label>
+  <input type="text" class="form-input" id="name" placeholder="Jane Smith" />
+</div>
+<div class="form-group">
+  <label class="form-label">Email Address</label>
+  <input type="email" class="form-input" id="email" placeholder="jane@example.com" />
+</div>
+<div class="form-group">
+  <label class="form-label">I'm interested in…</label>
+  <select class="form-select" id="interest">
+    <option value="">— Select one —</option>
+    <option>Purchasing a gallery piece</option>
+    <option>Commissioning a custom painting</option>
+    <option>General inquiry</option>
+  </select>
+</div>
+<div class="form-group">
+  <label class="form-label">Your Message</label>
+  <textarea class="form-textarea" id="message" placeholder="Tell me what you have in mind…"></textarea>
+</div>
+<button class="form-submit" onclick="handleSubmit()">Send Message</button>
+
+<p style="margin-top:1rem; font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.1em; color:#bbb; text-transform:uppercase; text-align:center;">
+  ✦ All inquiries typically answered within 2–3 days (unless she's traveling)
+</p>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+
+<footer>
+  <p class="footer-name">Sabina Kuss</p>
+  <p class="footer-tagline">Original Oil Paintings · Durango, Colorado</p>
+  <ul class="footer-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#commission">Commission</a></li>
+    <li><a href="#bio">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Sabina Kuss · All artwork and images are the property of Sabina Kuss · All rights reserved</p>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 120);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Contact form (simple — just shows confirmation since no backend yet)
+  function handleSubmit() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message before sending.');
+      return;
+    }
+
+    // In a real deployment, you'd POST to a form service like Netlify Forms,
+    // Formspree, or EmailJS. For now, show success message.
+    document.getElementById('form-success').style.display = 'block';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('message').value = '';
+    document.getElementById('interest').value = '';
+  }
+</script>
+
+</body>
+</html>
