@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: images
+public_folder: images
+
+collections:
+  - name: gallery
+    label: Gallery
+    files:
+      - name: paintings
+        label: Paintings
+        file: paintings.json
+        fields:
+          - name: paintings
+            label: Paintings
+            label_singular: Painting
+            widget: list
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Image, name: image, widget: image}
+              - {label: Medium / Price, name: price, widget: string, default: "Oil on Canvas · Inquire for Price"}
+              - {label: Mark as Sold, name: sold, widget: boolean, default: false}
