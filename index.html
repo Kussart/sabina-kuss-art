@@ -14,14 +14,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --clay:      #C4724A;
-      --sand:      #E8D5B7;
-      --sage:      #7A9E7E;
-      --charcoal:  #2B2B2B;
-      --cream:     #FAF6EF;
-      --rust:      #9E4A2A;
-      --gold:      #C9A84C;
-      --warm-white:#FFFDF8;
+      --clay:      #3A6EA8;
+      --sand:      #C8D9ED;
+      --sage:      #5B8DB8;
+      --charcoal:  #1A2B3C;
+      --cream:     #EEF4FB;
+      --rust:      #1E4D7B;
+      --gold:      #7BAFD4;
+      --warm-white:#F4F8FD;
     }
 
     html { scroll-behavior: smooth; }
@@ -62,12 +62,14 @@
     nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
 
     .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-style: italic;
-      color: var(--clay);
       text-decoration: none;
-      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo svg {
+      height: 80px;
+      width: auto;
     }
 
     .nav-links {
@@ -111,7 +113,7 @@
     }
 
     .hero-image-side {
-      background: linear-gradient(135deg, #8B5E3C 0%, #C4724A 40%, #9E4A2A 70%, #5C3317 100%);
+      background: linear-gradient(135deg, #1A3A5C 0%, #3A6EA8 40%, #1E4D7B 70%, #0F2540 100%);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -138,12 +140,12 @@
     .hero-portrait-frame {
       position: relative;
       z-index: 2;
-      width: 260px;
-      height: 320px;
+      width: 420px;
+      height: 520px;
       border: 3px solid rgba(232, 213, 183, 0.5);
       box-shadow: 20px 20px 60px rgba(0,0,0,0.3), -5px -5px 30px rgba(255,255,255,0.1);
       overflow: hidden;
-      transform: rotate(-1.5deg);
+      transform: rotate(0deg);
     }
 
     .hero-portrait-frame img {
@@ -155,7 +157,7 @@
     .portrait-placeholder {
       width: 100%;
       height: 100%;
-      background: linear-gradient(160deg, #C4724A 0%, #8B5E3C 50%, #5C3317 100%);
+      background: linear-gradient(160deg, #3A6EA8 0%, #1A3A5C 50%, #0F2540 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -389,7 +391,7 @@
     .commission-canvas {
       width: 100%;
       aspect-ratio: 3/4;
-      background: linear-gradient(145deg, #8B5E3C, #C4724A, #7A4A2C, #9E6040);
+      background: linear-gradient(145deg, #1A3A5C, #3A6EA8, #1E4D7B, #2A5A8C);
       position: relative;
       overflow: hidden;
       box-shadow: 30px 30px 80px rgba(0,0,0,0.2);
@@ -536,11 +538,11 @@
     .gallery-item:hover .gallery-placeholder { transform: scale(1.05); }
 
     /* Distinct color per painting placeholder */
-    .gp-1 { background: linear-gradient(135deg, #8B5E3C, #C4724A); }
-    .gp-2 { background: linear-gradient(135deg, #4A6741, #7A9E7E); }
-    .gp-3 { background: linear-gradient(135deg, #6B4E71, #9B7EA6); }
-    .gp-4 { background: linear-gradient(135deg, #3E5E7A, #6B9EC4); }
-    .gp-5 { background: linear-gradient(135deg, #7A5C3C, #B88A5C); }
+    .gp-1 { background: linear-gradient(135deg, #1A3A5C, #3A6EA8); }
+    .gp-2 { background: linear-gradient(135deg, #1E4D7B, #5B8DB8); }
+    .gp-3 { background: linear-gradient(135deg, #2A3A6B, #5B6EB8); }
+    .gp-4 { background: linear-gradient(135deg, #0F2540, #2A5A8C); }
+    .gp-5 { background: linear-gradient(135deg, #1A3A5C, #4A7FA8); }
 
     .gallery-overlay {
       position: absolute;
@@ -615,7 +617,7 @@
     .bio-portrait {
       width: 100%;
       aspect-ratio: 3/4;
-      background: linear-gradient(145deg, #C4724A, #8B5E3C, #5C3317);
+      background: linear-gradient(145deg, #3A6EA8, #1A3A5C, #0F2540);
       margin-bottom: 1.5rem;
       position: relative;
       overflow: hidden;
@@ -720,85 +722,6 @@
       text-transform: uppercase;
       color: rgba(232, 213, 183, 0.45);
       margin-top: 0.5rem;
-    }
-
-    /* ── BURRFEST SPOTLIGHT ────────────────────────── */
-    #burrofest {
-      padding: 6rem 3rem;
-      background: var(--cream);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #burrofest::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(196,114,74,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .burrofest-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .burrofest-icon {
-      font-size: 4rem;
-      margin-bottom: 1.5rem;
-      display: block;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .burrofest-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 4vw, 4rem);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--charcoal);
-      margin-bottom: 1.5rem;
-    }
-
-    .burrofest-heading em { color: var(--clay); font-style: italic; }
-
-    .burrofest-body {
-      font-size: 1.15rem;
-      line-height: 1.9;
-      color: #666;
-      margin-bottom: 3rem;
-    }
-
-    .burrofest-card {
-      background: var(--charcoal);
-      color: var(--sand);
-      padding: 2.5rem 3rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 2rem;
-      text-align: left;
-      margin-top: 1rem;
-    }
-
-    .burrofest-card-icon { font-size: 2.5rem; }
-
-    .burrofest-card-text p:first-child {
-      font-family: 'Josefin Sans', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--clay);
-      margin-bottom: 0.3rem;
-    }
-
-    .burrofest-card-text p:last-child {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
     }
 
     /* ── CONTACT / COMMISSIONS ─────────────────────── */
@@ -961,11 +884,42 @@
 <!-- ── NAVIGATION ─────────────────────────────────── -->
 
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">Sabina Kuss</a>
+  <a href="#hero" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" height="52" width="auto">
+      <path
+        d="M 0,62
+           C 20,60 40,55 60,48
+           C 75,42 88,32 100,22
+           Q 108,14 116,22
+           C 126,33 138,48 154,56
+           C 164,61 174,64 186,65
+           C 196,65 206,62 216,58
+           C 224,55 230,50 236,46
+           Q 242,42 248,46
+           C 254,50 260,56 268,60
+           C 276,64 286,66 298,65
+           C 310,64 322,58 336,46
+           Q 344,38 352,46
+           C 360,55 372,64 390,68
+           C 402,70 412,68 420,66"
+        fill="none"
+        stroke="#1A2B3C"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <text
+        x="210" y="85"
+        text-anchor="middle"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="13" font-weight="400" letter-spacing="8"
+        fill="#1A2B3C"
+      >SABINA  KUSS  ART</text>
+    </svg>
+  </a>
   <ul class="nav-links">
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#commission">Commission</a></li>
-    <li><a href="#burrofest">Burro Fest</a></li>
     <li><a href="#bio">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -975,50 +929,22 @@
 
 <section id="hero">
   <div class="hero-image-side">
-    <!-- Decorative background burro silhouette -->
-    <div class="burro-hero-art">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <!-- Simple stylized burro silhouette -->
-        <ellipse cx="100" cy="130" rx="60" ry="40"/>
-        <circle cx="100" cy="75" r="28"/>
-        <!-- ears -->
-        <ellipse cx="85" cy="50" rx="7" ry="18" transform="rotate(-10 85 50)"/>
-        <ellipse cx="115" cy="50" rx="7" ry="18" transform="rotate(10 115 50)"/>
-        <!-- legs -->
-        <rect x="70" y="165" width="12" height="30" rx="4"/>
-        <rect x="88" y="165" width="12" height="30" rx="4"/>
-        <rect x="100" y="165" width="12" height="30" rx="4"/>
-        <rect x="118" y="165" width="12" height="30" rx="4"/>
-        <!-- tail -->
-        <path d="M155 135 Q175 125 170 145 Q165 160 155 155" fill="none" stroke="currentColor" stroke-width="8"/>
-        <!-- mane -->
-        <path d="M90 55 Q95 30 105 25 Q110 40 115 55" opacity="0.5"/>
-      </svg>
-    </div>
-
-```
-<!-- Artist portrait placeholder -->
+<!-- Hero painting -->
 <div style="position:relative; z-index:2;">
   <div class="hero-portrait-frame">
-    <div class="portrait-placeholder">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-      </svg>
-      <p>Artist portrait<br/>coming soon<br/><br/>Add your photo<br/>when ready</p>
-    </div>
+    <img src="images/image_001.jpg" alt="Ice Face Plunge" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;"/>
   </div>
-  <div class="frame-label">Sabina Kuss · Durango, CO</div>
+  <div class="frame-label">Ice Face Plunge &nbsp;·&nbsp; Oil 12" × 14"</div>
 </div>
-```
 
   </div>
 
   <div class="hero-text-side">
     <p class="hero-eyebrow">✦ Original Fine Art ✦ Durango, Colorado</p>
     <h1 class="hero-name">Sabina<br/><em>Kuss</em></h1>
-    <p class="hero-subtitle">Painter of the Southwest Soul</p>
+    <p class="hero-subtitle">Refuge of Contemplation</p>
     <p class="hero-tagline">
-      Original oil paintings that capture the wild heart of the American Southwest — from the sagebrush mesas of Durango to the enduring spirit of the burro.
+      Painting is my escape and my return. I am able to return to the moments that move me the most. I capture the beauty of a landscape or the character of a living creature and make it permanent on my canvas. Through my travels and time in nature, I invite the viewer to share in my sense of wonder. My desire is to turn these experiences into an opportunity of reflection and joy to the viewer.
     </p>
     <div class="hero-ctas">
       <a href="#gallery" class="btn-primary">View Gallery</a>
@@ -1040,16 +966,7 @@
     <span class="marquee-item">Southwest Landscapes <span class="marquee-dot">✦</span></span>
     <span class="marquee-item">Burro Portraits <span class="marquee-dot">✦</span></span>
     <span class="marquee-item">Commissions Welcome <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Mancos Burro Fest Artist <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Durango, Colorado <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Four Corners Region <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Original Oil Paintings <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Southwest Landscapes <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Burro Portraits <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Commissions Welcome <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Mancos Burro Fest Artist <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Durango, Colorado <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Four Corners Region <span class="marquee-dot">✦</span></span>
+
   </div>
 </div>
 
@@ -1058,84 +975,7 @@
 <section id="commission">
   <div class="commission-artwork reveal">
     <div class="commission-canvas">
-      <!-- Artistic SVG burro face illustration -->
-      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
-            <stop offset="0%" stop-color="#D4875A"/>
-            <stop offset="100%" stop-color="#5C3317"/>
-          </radialGradient>
-          <radialGradient id="faceGrad" cx="50%" cy="40%" r="55%">
-            <stop offset="0%" stop-color="#C8956B"/>
-            <stop offset="100%" stop-color="#7A4A28"/>
-          </radialGradient>
-        </defs>
-
-```
-    <!-- Background warm painterly wash -->
-    <rect width="300" height="400" fill="url(#bgGrad)"/>
-
-    <!-- Soft painted texture strokes -->
-    <ellipse cx="150" cy="200" rx="180" ry="250" fill="rgba(255,220,180,0.06)"/>
-    <ellipse cx="80" cy="120" rx="100" ry="80" fill="rgba(180,100,40,0.15)"/>
-    <ellipse cx="220" cy="280" rx="90" ry="70" fill="rgba(100,50,20,0.2)"/>
-
-    <!-- Neck -->
-    <ellipse cx="150" cy="355" rx="55" ry="55" fill="url(#faceGrad)" opacity="0.9"/>
-
-    <!-- Main head/face -->
-    <ellipse cx="150" cy="220" rx="85" ry="100" fill="url(#faceGrad)"/>
-
-    <!-- Snout/muzzle -->
-    <ellipse cx="150" cy="295" rx="48" ry="38" fill="#D4A882"/>
-    <ellipse cx="150" cy="298" rx="38" ry="28" fill="#C4987A"/>
-
-    <!-- Nostrils -->
-    <ellipse cx="137" cy="302" rx="8" ry="6" fill="#7A4A28" opacity="0.7"/>
-    <ellipse cx="163" cy="302" rx="8" ry="6" fill="#7A4A28" opacity="0.7"/>
-    <ellipse cx="137" cy="302" rx="5" ry="3.5" fill="#5C3317" opacity="0.8"/>
-    <ellipse cx="163" cy="302" rx="5" ry="3.5" fill="#5C3317" opacity="0.8"/>
-
-    <!-- Eyes -->
-    <ellipse cx="113" cy="218" rx="18" ry="16" fill="#3E2A18"/>
-    <ellipse cx="187" cy="218" rx="18" ry="16" fill="#3E2A18"/>
-    <ellipse cx="113" cy="218" rx="12" ry="10" fill="#1A1008"/>
-    <ellipse cx="187" cy="218" rx="12" ry="10" fill="#1A1008"/>
-    <!-- Eye shine -->
-    <circle cx="108" cy="213" r="3.5" fill="rgba(255,255,255,0.5)"/>
-    <circle cx="182" cy="213" r="3.5" fill="rgba(255,255,255,0.5)"/>
-    <!-- Lashes -->
-    <path d="M98 206 Q103 200 110 204" stroke="#3E2A18" stroke-width="2" fill="none"/>
-    <path d="M172 206 Q177 200 185 204" stroke="#3E2A18" stroke-width="2" fill="none"/>
-
-    <!-- Forehead blaze/marking -->
-    <ellipse cx="150" cy="185" rx="18" ry="30" fill="rgba(232,213,183,0.25)"/>
-
-    <!-- EARS — tall and expressive -->
-    <ellipse cx="103" cy="115" rx="22" ry="55" transform="rotate(-8 103 115)" fill="#B8845A"/>
-    <ellipse cx="197" cy="115" rx="22" ry="55" transform="rotate(8 197 115)" fill="#B8845A"/>
-    <!-- Inner ear -->
-    <ellipse cx="103" cy="115" rx="12" ry="38" transform="rotate(-8 103 115)" fill="#E8A88C" opacity="0.6"/>
-    <ellipse cx="197" cy="115" rx="12" ry="38" transform="rotate(8 197 115)" fill="#E8A88C" opacity="0.6"/>
-
-    <!-- Mane / forelock -->
-    <path d="M130 145 Q140 110 150 100 Q160 110 170 145" fill="#5C3317" opacity="0.7"/>
-    <path d="M140 148 Q148 120 155 112" stroke="#7A4A28" stroke-width="4" fill="none" opacity="0.5"/>
-
-    <!-- Chin hair -->
-    <path d="M140 330 Q150 345 160 330" stroke="#7A4A28" stroke-width="3" fill="none" opacity="0.5"/>
-
-    <!-- Painterly light highlights -->
-    <ellipse cx="110" cy="175" rx="20" ry="12" fill="rgba(255,230,200,0.12)" transform="rotate(-20 110 175)"/>
-    <ellipse cx="190" cy="175" rx="20" ry="12" fill="rgba(255,230,200,0.12)" transform="rotate(20 190 175)"/>
-
-    <!-- Warm painterly impasto strokes feel -->
-    <path d="M50 50 Q150 30 250 60" stroke="rgba(200,140,80,0.15)" stroke-width="8" fill="none"/>
-    <path d="M30 350 Q150 370 270 350" stroke="rgba(150,80,40,0.12)" stroke-width="10" fill="none"/>
-
-    <!-- "COMMISSION" watermark text -->
-    <text x="150" y="390" text-anchor="middle" font-family="serif" font-size="11" fill="rgba(232,213,183,0.35)" letter-spacing="4" font-style="italic">COMMISSIONED WORK</text>
-  </svg>
+<img src="images/burro-commission.jpg" alt="Burro Portrait Commission" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;"/>
 
   <div class="commission-badge">
     <span>★</span>
@@ -1143,7 +983,6 @@
     Commission
   </div>
 </div>
-```
 
   </div>
 
@@ -1154,7 +993,6 @@
       Sabina has just received an exciting commission for a large, close-up oil painting of a burro face — capturing the soulful gaze and quiet dignity of this iconic Southwest animal. Each brushstroke brings to life the texture, warmth, and personality that make burros such beloved subjects.
     </p>
 
-```
 <div class="commission-details">
   <div class="detail-item">
     <div class="detail-label">Medium</div>
@@ -1175,7 +1013,6 @@
 </div>
 
 <a href="#contact" class="btn-primary">Request a Commission</a>
-```
 
   </div>
 </section>
@@ -1192,77 +1029,142 @@
   </div>
 
   <div class="gallery-grid">
-    <!-- Painting 1 — wide feature -->
+
     <div class="gallery-item">
-      <div class="gallery-placeholder gp-1">
-        <div class="gallery-placeholder-icon">🫏</div>
-        <p>Burro in the Mesa Light<br/>Oil on Canvas · Available<br/><br/>Add your artwork photo here</p>
-      </div>
-      <div class="gallery-overlay">
-        <div class="gallery-info">
-          <span class="gallery-title">Burro in the Mesa Light</span>
-          <span class="gallery-price">Oil on Canvas · Inquire for Price</span>
-        </div>
-      </div>
+      <img src="images/image_002.png" alt="Mountain Biker on Rocks" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Holding the Line</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
     </div>
 
-```
-<!-- Painting 2 -->
-<div class="gallery-item">
-  <div class="gallery-placeholder gp-2">
-    <div class="gallery-placeholder-icon">🏔️</div>
-    <p>Southwest Landscape<br/>Oil on Canvas · Available<br/><br/>Add your artwork photo here</p>
-  </div>
-  <div class="gallery-overlay">
-    <div class="gallery-info">
-      <span class="gallery-title">Southwest Landscape</span>
-      <span class="gallery-price">Oil on Canvas · Inquire for Price</span>
+    <div class="gallery-item">
+      <img src="images/image_003.png" alt="Red Poppy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Airy Poppy</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
     </div>
-  </div>
-</div>
 
-<!-- Painting 3 -->
-<div class="gallery-item">
-  <div class="gallery-placeholder gp-3">
-    <div class="gallery-placeholder-icon">🌅</div>
-    <p>Durango Dusk<br/>Oil on Canvas · Available<br/><br/>Add your artwork photo here</p>
-  </div>
-  <div class="gallery-overlay">
-    <div class="gallery-info">
-      <span class="gallery-title">Durango Dusk</span>
-      <span class="gallery-price">Oil on Canvas · Inquire for Price</span>
+    <div class="gallery-item">
+      <img src="images/image_004.png" alt="Sunset Bike Ride" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">No Map, Just a Horizon</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
     </div>
-  </div>
-</div>
 
-<!-- Painting 4 — wide feature -->
-<div class="gallery-item">
-  <div class="gallery-placeholder gp-4">
-    <div class="gallery-placeholder-icon">🫏</div>
-    <p>Two Burros, San Juan Mountains<br/>Oil on Canvas · Available<br/><br/>Add your artwork photo here</p>
-  </div>
-  <div class="gallery-overlay">
-    <div class="gallery-info">
-      <span class="gallery-title">Two Burros, San Juan Mountains</span>
-      <span class="gallery-price">Oil on Canvas · Inquire for Price</span>
+    <div class="gallery-item">
+      <img src="images/image_005.jpg" alt="Burro Portrait" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Francis</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
     </div>
-  </div>
-</div>
 
-<!-- Painting 5 -->
-<div class="gallery-item">
-  <div class="gallery-placeholder gp-5">
-    <div class="gallery-placeholder-icon">🌿</div>
-    <p>Sagebrush Study<br/>Oil on Canvas · Available<br/><br/>Add your artwork photo here</p>
-  </div>
-  <div class="gallery-overlay">
-    <div class="gallery-info">
-      <span class="gallery-title">Sagebrush Study</span>
-      <span class="gallery-price">Oil on Canvas · Inquire for Price</span>
+    <div class="gallery-item">
+      <img src="images/image_006.jpg" alt="Donkeys and Geese" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Refugio</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
     </div>
+
+    <div class="gallery-item">
+      <img src="images/image_007.jpg" alt="Canoe at Sunset" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Painted Sky</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_008.png" alt="Canyon Tree" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Canyon Overlook</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_009.jpg" alt="Mesa Landscape" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Mesa Landscape</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_010.jpg" alt="Winter Mountain" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Eyelashes of the Sun</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_011.jpg" alt="Snowshoe Hare" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Snowshoe Hare</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_013.jpg" alt="Robin in Winter" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Robin in Winter</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_014.jpg" alt="Bicycle Detail" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Single Speed Shift</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_015.jpg" alt="Winter Stream" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Evening Willows</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_016.jpg" alt="Alpine Sunrise" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Morning Sunburst</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_017.jpg" alt="Snowy Peak" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Engineer</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_018.jpg" alt="Golden Mountain" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Sunlight to Shadows</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+
   </div>
-</div>
-```
+
+
+
+
+    <div class="gallery-item">
+      <img src="images/image_023.jpg" alt="Saguaro Sunset" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">McDowell Alpenglow</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_024.png" alt="Tour de France" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">The Peloton, Stage 15 Tour de France</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_025.jpg" alt="Fox at Dusk" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Red Fox</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_026.jpg" alt="Two Burros" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Sure-footed Delivery</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_027.jpg" alt="Sheep in the Valley" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">All Accounted For</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_028.jpg" alt="Sandhill Cranes" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Sandhill Cranes</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_029.jpg" alt="Fawn Reflection" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Graceful Fawn</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+    <div class="gallery-item" style="position:relative;">
+      <img src="images/IMG_4748.jpeg" alt="French Cottage with Bicycle" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);background:rgba(180,0,0,0.8);color:white;font-family:'Josefin Sans',sans-serif;font-size:2rem;font-weight:700;letter-spacing:0.2em;padding:0.5rem 2rem;pointer-events:none;">SOLD</div>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">French Cottage</span><span class="gallery-price">Oil on Canvas · SOLD</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/IMG_0270.png" alt="Grand Canyon Sunset" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Canyon Sunset</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/image_030.jpg" alt="Canyon Glow" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      <div class="gallery-overlay"><div class="gallery-info"><span class="gallery-title">Canyon Glow</span><span class="gallery-price">Oil on Canvas · Inquire for Price</span></div></div>
+    </div>
 
   </div>
 
@@ -1276,11 +1178,8 @@
 <section id="bio">
   <div class="bio-sidebar reveal">
     <div class="bio-portrait">
-      <div class="bio-portrait-inner">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-        </svg>
-        <p>Artist portrait<br/>Add your photo here<br/>when ready</p>
+      <div class="bio-portrait-inner" style="padding:0;overflow:hidden;background:none;border:none;">
+        <img src="images/image_031.jpg" alt="Sabina Kuss with a burro" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit;display:block;"/>
       </div>
     </div>
     <div class="bio-name-card">
@@ -1291,23 +1190,48 @@
 
   <div class="bio-content reveal">
     <p class="section-label">✦ The Artist</p>
-    <h2>Rooted in the <em>Southwest</em></h2>
+    <h2>About <em>Sabina</em></h2>
     <div class="bio-body">
       <p>
-        Sabina Kuss is a Durango, Colorado-based painter whose work is deeply rooted in the landscapes, animals, and light of the American Southwest. Working primarily in oil, she captures subjects with a warmth and authenticity that only comes from truly living among them.
+        Sabina is a nature-inspired representational oil painter in Durango, Colorado focusing on the landscape and its animal life. Her color palette is inspired by her travels and everyday encounters.
       </p>
       <p>
-        Her most beloved subjects are the burros of the Four Corners region — animals that carry a profound history of partnership with people across the rugged San Juan Mountains. In each painting, Sabina brings out the personality and soulfulness of these remarkable creatures.
+        Her career as an elementary school teacher fostered a love of lifelong learning and an openness to multiple perspectives. These qualities spurred an artistic pursuit and a curiosity to become a self-directed oil painter. Her dedicated process of self-teaching is to utilize workshops, mentoring and online classes.
       </p>
       <p>
-        <em style="color:var(--clay);">[Sabina's full biography will be added here when ready. She's currently working on it — check back soon!]</em>
+        As a traveler and keen observer of nature, she uses her practice to revive the sights, sounds and spirits encountered on her adventures. Sabina aspires to offer a refuge of contemplation through her paintings generated from her gusto for both art and the natural world.
       </p>
       <p>
-        A fixture in the Durango arts community, Sabina will be exhibiting at Burro Fest, showcasing her signature burro paintings alongside the living animals that inspire them.
+        Her work expands from oil painting to include over 170 different greeting cards and a self-published book sold at seven locations in Durango.
       </p>
+
+<!-- ── BOOK & CARDS ─────────────────────────────────── -->
+<div style="margin-top:3rem; padding:2.5rem; background:var(--cream,#f5f0e8); border-radius:12px;" class="reveal">
+  <p class="section-label" style="text-align:center;">✦ Beyond the Canvas</p>
+  <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; text-align:center; margin-bottom:2rem; color:var(--ink,#1A2B3C);">Book &amp; Greeting Cards</h3>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:start;">
+
+    <div style="text-align:center;">
+      <img src="images/image_032.png" alt="A Donkey and a Boy book cover"
+        style="width:100%; max-width:320px; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15);"/>
+      <p style="margin-top:1rem; font-family:'Playfair Display',serif; font-style:italic; font-size:1.1rem; color:var(--ink,#1A2B3C);">A Donkey and a Boy</p>
+      <p style="font-size:0.85rem; color:#666; margin-top:0.25rem;">Written &amp; Illustrated by Sabina Kuss<br/>Available at 7 locations in Durango</p>
     </div>
 
-```
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+      <img src="images/image_033.jpg" alt="Greeting cards collection"
+        style="width:100%; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15);"/>
+      <img src="images/image_034.jpg" alt="Greeting cards collection"
+        style="width:100%; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15);"/>
+      <p style="font-size:0.85rem; color:#666; text-align:center;">Over 170 original greeting card designs</p>
+    </div>
+
+  </div>
+</div>
+
+    </div>
+
 <div class="bio-facts">
   <div class="bio-fact">
     <span class="bio-fact-number">oils</span>
@@ -1322,43 +1246,17 @@
     <p class="bio-fact-label">Commissions Open</p>
   </div>
 </div>
-```
 
   </div>
 </section>
 
-<!-- ── BURRO FEST SPOTLIGHT ────────────────────────── -->
 
-<section id="burrofest">
-  <div class="burrofest-inner reveal">
-    <span class="burrofest-icon">🫏</span>
-    <h2 class="burrofest-heading">Burro Fest<br/><em>Mancos, Colorado</em></h2>
-    <p class="burrofest-body">
-      Sabina is proud to be part of the beloved Mancos Burro Fest — an annual celebration near Durango where artists and burros come together in an unforgettable event. Artists are paired with live burros weeks in advance, giving the work real depth and connection. You'll find Sabina's paintings alongside these extraordinary animals on Grand Avenue.
-    </p>
-    <p class="burrofest-body" style="font-style:italic; color:#999; font-size:1rem;">
-      Event dates to be announced — follow along or reach out to be notified!
-    </p>
-
-```
-<div class="burrofest-card">
-  <div class="burrofest-card-icon">🎨</div>
-  <div class="burrofest-card-text">
-    <p>Featured Artist</p>
-    <p>Sabina Kuss · Live Painting · Burro Portraits</p>
-  </div>
-</div>
-```
-
-  </div>
-</section>
 
 <!-- ── CONTACT ─────────────────────────────────────── -->
 
 <section id="contact">
   <div class="contact-text reveal">
-    <p class="section-label">✦ Get in Touch</p>
-    <h2 class="section-heading">Collect a<br/><em>Piece of the West</em></h2>
+    <h2 style="font-family:'Playfair Display',serif; font-size:clamp(2.5rem,4vw,4rem); font-weight:700; color:var(--charcoal); margin-bottom:1.5rem;">Get in <em style="color:var(--clay); font-style:italic;">Touch</em></h2>
     <p class="section-body">
       Interested in owning an original Sabina Kuss painting? Whether you'd like to purchase a piece from the gallery, commission a custom work, or simply learn more — Sabina would love to hear from you.
     </p>
@@ -1366,19 +1264,16 @@
       Commission inquiries are especially welcome. Sabina accepts a limited number of commissions each year, allowing her to give each piece the time and devotion it deserves.
     </p>
 
-```
 <div style="margin-top:2rem; padding:1.5rem; border-left:3px solid var(--sage); background:rgba(122,158,126,0.08);">
   <p style="font-family:'Josefin Sans',sans-serif; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--sage); margin-bottom:0.5rem;">Based in</p>
   <p style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--charcoal);">Durango, Colorado<br/><span style="font-size:0.95rem; color:#888; font-style:italic;">Four Corners Region, USA</span></p>
 </div>
-```
 
   </div>
 
   <div class="contact-form-area reveal">
     <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:1.5rem; color:var(--charcoal);">Send a Message</h3>
 
-```
 <div id="form-success" style="display:none; background:#7A9E7E; color:white; padding:1rem 1.5rem; margin-bottom:1.5rem; font-family:'Josefin Sans',sans-serif; font-size:0.8rem; letter-spacing:0.1em;">
   ✓ Your message has been sent! Sabina will be in touch soon.
 </div>
@@ -1397,7 +1292,6 @@
     <option value="">— Select one —</option>
     <option>Purchasing a gallery piece</option>
     <option>Commissioning a custom painting</option>
-    <option>Burro Fest information</option>
     <option>General inquiry</option>
   </select>
 </div>
@@ -1408,9 +1302,8 @@
 <button class="form-submit" onclick="handleSubmit()">Send Message</button>
 
 <p style="margin-top:1rem; font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.1em; color:#bbb; text-transform:uppercase; text-align:center;">
-  ✦ All inquiries typically answered within 2–3 days
+  ✦ All inquiries typically answered within 2–3 days (unless she's traveling)
 </p>
-```
 
   </div>
 </section>
@@ -1423,7 +1316,6 @@
   <ul class="footer-links">
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#commission">Commission</a></li>
-    <li><a href="#burrofest">Burro Fest</a></li>
     <li><a href="#bio">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
