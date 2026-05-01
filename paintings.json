@@ -1,32 +1,172 @@
 {
   "paintings": [
-    {"title": "Holding the Line", "image": "images/image_002.png", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Airy Poppy", "image": "images/image_003.png", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "No Map, Just a Horizon", "image": "images/image_004.png", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Francis", "image": "images/image_005.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Refugio", "image": "images/image_006.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Painted Sky", "image": "images/image_007.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Canyon Overlook", "image": "images/image_008.png", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Mesa Landscape", "image": "images/image_009.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Eyelashes of the Sun", "image": "images/image_010.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Snowshoe Hare", "image": "images/image_011.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Robin in Winter", "image": "images/image_013.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Single Speed Shift", "image": "images/image_014.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Evening Willows", "image": "images/image_015.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Morning Sunburst", "image": "images/image_016.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Engineer", "image": "images/image_017.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Sunlight to Shadows", "image": "images/image_018.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "McDowell Alpenglow", "image": "images/image_023.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "The Peloton, Stage 15 Tour de France", "image": "images/image_024.png", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Red Fox", "image": "images/image_025.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Sure-footed Delivery", "image": "images/image_026.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "All Accounted For", "image": "images/image_027.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Sandhill Cranes", "image": "images/image_028.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Graceful Fawn", "image": "images/image_029.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Spirit Burro", "image": "images/image_019_2.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "French Cottage", "image": "images/IMG_4748.jpeg", "price": "Oil on Canvas · SOLD", "sold": true},
-    {"title": "Canyon Sunset", "image": "images/IMG_0270.png", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Canyon Glow", "image": "images/image_030.jpg", "price": "Oil on Canvas · Inquire for Price", "sold": false},
-    {"title": "Ride on, Susie", "image": "images/image_035.jpg", "price": "Oil on Canvas · SOLD", "sold": true}
+    {
+      "title": "Holding the Line",
+      "image": "images/image_002.png",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Airy Poppy",
+      "image": "images/image_003.png",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "No Map, Just a Horizon",
+      "image": "images/image_004.png",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Francis",
+      "image": "images/image_005.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Refugio",
+      "image": "images/image_006.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Painted Sky",
+      "image": "images/image_007.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Canyon Overlook",
+      "image": "images/image_008.png",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Mesa Landscape",
+      "image": "images/image_009.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Eyelashes of the Sun",
+      "image": "images/image_010.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Snowshoe Hare",
+      "image": "images/image_011.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Robin in Winter",
+      "image": "images/image_013.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Single Speed Shift",
+      "image": "images/image_014.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Evening Willows",
+      "image": "images/image_015.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Morning Sunburst",
+      "image": "images/image_016.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Engineer",
+      "image": "images/image_017.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Sunlight to Shadows",
+      "image": "images/image_018.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "McDowell Alpenglow",
+      "image": "images/image_023.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "The Peloton, Stage 15 Tour de France",
+      "image": "images/image_024.png",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Red Fox",
+      "image": "images/image_025.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Sure-footed Delivery",
+      "image": "images/image_026.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "All Accounted For",
+      "image": "images/image_027.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Sandhill Cranes",
+      "image": "images/image_028.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Graceful Fawn",
+      "image": "images/image_029.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Spirit Burro",
+      "image": "images/image_019_2.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "French Cottage",
+      "image": "images/IMG_4748.jpeg",
+      "price": "Oil on Canvas · SOLD",
+      "sold": true
+    },
+    {
+      "title": "Canyon Sunset",
+      "image": "images/IMG_0270.png",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Canyon Glow",
+      "image": "images/image_030.jpg",
+      "price": "Oil on Canvas · Inquire for Price",
+      "sold": false
+    },
+    {
+      "title": "Ride on, Susie",
+      "image": "images/image_035.jpg",
+      "price": "Oil on Canvas · SOLD",
+      "sold": false
+    }
   ]
 }
